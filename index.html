@@ -15,7 +15,7 @@
 <h1>Financial Life Simulator</h1>
 
 <!-- START -->
-<div id="startScreen">
+<div id="startScreen" class="glass">
 <input id="playerName" placeholder="Enter your name">
 <input id="startingMoney" type="number" value="10000">
 <br><br>
@@ -25,21 +25,71 @@
 <!-- GAME -->
 <div id="gameScreen" class="hidden">
 
-<p id="progress"></p>
+<!-- METRICS -->
+<div class="top-metrics">
 
-<h2 id="scenarioTitle"></h2>
-<p id="scenarioDescription"></p>
-
-<div id="options"></div>
-
-<div class="dashboard">
-<div>Savings 💰: <span id="savings"></span></div>
-<div>Debt 💳: <span id="debt"></span></div>
-<div>Investments 📈: <span id="investments"></span></div>
-<div>Score 🧠: <span id="score"></span></div>
+<div class="metric-card glass">
+<p>Savings</p>
+<h2 id="savings"></h2>
 </div>
 
+<div class="metric-card glass">
+<p>Debt</p>
+<h2 id="debt"></h2>
+</div>
+
+<div class="metric-card glass">
+<p>Investments</p>
+<h2 id="investments"></h2>
+</div>
+
+<div class="metric-card glass highlight">
+<p>Score</p>
+<h2 id="score"></h2>
+</div>
+
+</div>
+
+<p id="progress"></p>
+
+<!-- SCENARIO -->
+<div class="scenario-card glass">
+<h2 id="scenarioTitle"></h2>
+<p id="scenarioDescription"></p>
+<div id="options"></div>
+</div>
+
+<!-- CHART -->
+<div class="chart-card glass">
+<h3>Financial Trend</h3>
 <canvas id="financeChart"></canvas>
+</div>
+
+<!-- HEALTH -->
+<div class="health-section">
+
+<h3>Financial Health</h3>
+
+<div class="health-grid">
+
+<div class="health-box glass">
+<p>Saving Ratio</p>
+<h4 id="savingRatio"></h4>
+</div>
+
+<div class="health-box glass">
+<p>Debt Ratio</p>
+<h4 id="debtRatio"></h4>
+</div>
+
+<div class="health-box glass">
+<p>Investment Growth</p>
+<h4 id="investGrowth"></h4>
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -51,8 +101,10 @@
 <p id="finalScore"></p>
 <p id="playerTitle"></p>
 
-<h3>Your Financial Journey</h3>
+<div class="chart-card glass">
+<h3>Final Financial Journey</h3>
 <canvas id="resultChart"></canvas>
+</div>
 
 <button onclick="location.reload()">Play Again</button>
 
