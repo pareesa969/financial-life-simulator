@@ -1,99 +1,209 @@
+/* ================= GLOBAL ================= */
+
 body{
 margin:0;
-padding:0;
-font-family: Arial, sans-serif;
+font-family:'Segoe UI',sans-serif;
+overflow:hidden;
 
+/* Animated background */
+background: radial-gradient(circle at 20% 20%, #0f172a, #020617 70%);
+color:white;
+}
+
+/* FLOATING GLOW ANIMATION */
+body::before{
+content:"";
+position:fixed;
+top:-20%;
+left:-20%;
+width:140%;
+height:140%;
+background: radial-gradient(circle, rgba(34,197,94,0.15), transparent 70%);
+animation: glowMove 10s linear infinite;
+z-index:-1;
+}
+
+@keyframes glowMove{
+0%{transform:translate(0,0)}
+50%{transform:translate(100px,80px)}
+100%{transform:translate(0,0)}
+}
+
+
+/* ================= CENTER ================= */
+
+.container{
 display:flex;
-justify-content:center;   /* horizontal center */
-align-items:center;       /* vertical center */
+justify-content:center;
+align-items:center;
+flex-direction:column;
 
 min-height:100vh;
-
-background: linear-gradient(120deg,#0f172a,#1e293b);
-color:white;
+transform:translateY(-40px);
 }
 
-/* MAIN CONTAINER */
-.container{
-width:100%;
-max-width:800px;
 
-padding:30px;
+/* ================= GLASS ================= */
 
+.glass{
 background: rgba(255,255,255,0.05);
-border-radius:15px;
+backdrop-filter: blur(18px);
 
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:20px;
 
-text-align:center;
+box-shadow:
+0 25px 70px rgba(0,0,0,0.8),
+0 0 60px rgba(34,197,94,0.2),
+inset 0 0 20px rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+padding: 30px;
 }
 
-/* BUTTONS */
-button{
-padding:12px 20px;
+.glass:hover{
+transform:translateY(-6px) scale(1.02);
+box-shadow:
+0 30px 80px rgba(0,0,0,0.9),
+0 0 80px rgba(34,197,94,0.35);
+}
+
+
+/* ================= TITLE ================= */
+
+h1{
+font-size:56px;
+margin-bottom:30px;
+
+background: linear-gradient(90deg,#22c55e,#4ade80,#22c55e);
+background-size:200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0%}
+100%{background-position:200%}
+}
+
+
+/* ================= INPUT ================= */
+
+input{
+padding:14px;
+border-radius:12px;
 border:none;
-border-radius:8px;
-background:#22c55e;
+width:260px;
+background:rgba(255,255,255,0.9);
+}
+
+
+/* ================= BUTTON ================= */
+
+button{
+padding:14px 30px;
+border:none;
+border-radius:14px;
+
+background: linear-gradient(135deg,#22c55e,#16a34a);
 color:white;
-font-size:16px;
+font-size:18px;
+
 cursor:pointer;
-transition:all 0.3s ease;
+transition:0.3s;
 }
 
 button:hover{
-transform:scale(1.05);
-background:#16a34a;
+transform:scale(1.1);
+box-shadow:0 0 25px rgba(34,197,94,0.7);
 }
 
-/* DASHBOARD */
-.dashboard{
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:10px;
+
+/* ================= PROGRESS BAR ================= */
+
+.progress-bar{
+width:100%;
+height:8px;
+background:rgba(255,255,255,0.1);
+border-radius:10px;
+overflow:hidden;
+margin:15px 0;
+}
+
+.progress-fill{
+height:100%;
+background:linear-gradient(90deg,#22c55e,#4ade80);
+width:0%;
+transition:0.4s;
+}
+
+
+/* ================= METRICS ================= */
+
+.top-metrics{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-bottom:20px;
+}
+
+.metric-card{
+padding:15px;
+}
+
+.highlight{
+border:1px solid #22c55e;
+box-shadow:0 0 20px rgba(34,197,94,0.4);
+}
+
+
+/* ================= CHART ================= */
+
+.chart-card{
+padding:20px;
 margin:20px 0;
 }
 
-.dashboard div{
-flex:1;
-min-width:120px;
-background:rgba(255,255,255,0.08);
-padding:10px;
-border-radius:10px;
+
+/* ================= TABS ================= */
+
+.tabs{
+display:flex;
+gap:10px;
+justify-content:flex-end;
+margin-bottom:10px;
 }
 
-/* OPTIONS */
-#options button{
-display:block;
-margin:10px auto;
-width:80%;
-}
-
-/* INPUTS */
-input{
-padding:10px;
-margin:10px;
+.tab{
+padding:6px 12px;
 border-radius:8px;
-border:none;
-width:200px;
+background:rgba(255,255,255,0.08);
+cursor:pointer;
 }
 
-/* HIDDEN */
+.tab.active{
+background:#22c55e;
+}
+
+
+/* ================= HEALTH ================= */
+
+.health-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.health-box{
+padding:15px;
+text-align:center;
+}
+
+
+/* ================= HIDDEN ================= */
+
 .hidden{
 display:none;
-}
-
-.container{
-animation:fadeIn 0.6s ease;
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
 }
