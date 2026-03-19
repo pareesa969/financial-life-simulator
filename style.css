@@ -1,0 +1,45 @@
+body{
+font-family:Arial;
+background:linear-gradient(120deg,#0f172a,#1e293b);
+color:white;
+text-align:center;
+}
+
+.container{
+width:800px;
+margin:auto;
+padding:20px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:8px;
+background:#22c55e;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#16a34a;
+}
+
+.dashboard{
+display:flex;
+justify-content:space-around;
+margin:20px 0;
+font-size:18px;
+}
+
+.hidden{
+display:none;
+}
+
+#options button{
+display:block;
+margin:10px auto;
+width:300px;
+}
