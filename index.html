@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Financial Life Simulator</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Financial Life Simulator</h1>
+
+<div id="startScreen">
+
+<p>Make financial decisions and see how your future changes.</p>
+
+<input id="playerName" placeholder="Enter your name">
+
+<input id="startingMoney" type="number" value="10000">
+
+<button onclick="startGame()">Start Game</button>
+
+</div>
+
+
+<div id="gameScreen" class="hidden">
+
+<h2 id="scenarioTitle"></h2>
+
+<p id="scenarioDescription"></p>
+
+<div id="options"></div>
+
+
+<div class="dashboard">
+
+<div>Savings: <span id="savings"></span></div>
+
+<div>Debt: <span id="debt"></span></div>
+
+<div>Investments: <span id="investments"></span></div>
+
+<div>Score: <span id="score"></span></div>
+
+</div>
+
+
+<canvas id="financeChart"></canvas>
+
+</div>
+
+
+<div id="resultScreen" class="hidden">
+
+<h2>Game Results</h2>
+
+<p id="finalScore"></p>
+
+<p id="playerTitle"></p>
+
+<button onclick="location.reload()">Play Again</button>
+
+</div>
+
+</div>
+
+<script src="data/scenarios.js"></script>
+<script src="utils/scoreCalculator.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
